@@ -1,0 +1,17 @@
+@import "variables";
+@import "fonts";
+@import "global";
+@import "mixins";
+
+/* Плагины */
+@import "plugins/normalize";
+
+/* Блоки */
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/page";
+@import "blocks/popup";
+
+// main page
+@import "blocks/main";

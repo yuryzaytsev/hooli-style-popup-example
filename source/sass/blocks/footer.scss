@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+}
+
+.footer__item {
+  margin: 7px;
+}
+
+.footer__link {
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.1s linear;
+  text-decoration: none;
+  color: $white;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: $orange;
+  }
+}
