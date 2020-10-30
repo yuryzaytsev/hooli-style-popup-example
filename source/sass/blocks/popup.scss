@@ -47,7 +47,7 @@
 .popup__list {
   display: grid;
   gap: 5px;
-  grid-template-columns: 90px 90px 90px;
+  grid-template-columns: repeat(3, 90px);
   list-style: none;
   padding: 10px;
 
@@ -68,7 +68,6 @@
 .popup .popup__list:first-of-type {
   padding-bottom: 0;
 }
-
 
 .popup__btn {
   order: 1;
@@ -112,9 +111,9 @@
   &:focus {
     background-color: rgba(0, 0, 0, 0.1);
   }
+}
 
-  svg {
-    margin-bottom: 10px;
-    fill: $black;
-  }
+.popup__link svg {
+  margin-bottom: 10px;
+  fill: $black;
 }

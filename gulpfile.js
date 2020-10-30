@@ -27,20 +27,20 @@ gulp.task('html', () => gulp.src('source/*.html')
 
 gulp.task('style', () => gulp.src('source/sass/style.scss')
   .pipe(plumber())
-  .pipe(sourcemaps.init())
-  .pipe(sass())
-  .pipe(postcss([
-    autoprefixer(),
-    transformPxvw({
-      defaultPageWidth: 1440,
-      digitsCount: 4
-    })
-  ]))
+  // .pipe(sourcemaps.init())
+  .pipe(sass({outputStyle: 'expanded'}))
+  // .pipe(postcss([
+  //   autoprefixer(),
+  //   transformPxvw({
+  //     defaultPageWidth: 1440,
+  //     digitsCount: 4
+  //   })
+  // ]))
   .pipe(gulp.dest('build/css'))
-  .pipe(minify())
-  .pipe(rename('style.min.css'))
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('build/css'))
+  // .pipe(minify())
+  // .pipe(rename('style.min.css'))
+  // .pipe(sourcemaps.write('./'))
+  // .pipe(gulp.dest('build/css'))
   .pipe(server.stream())
 );
 
@@ -83,7 +83,7 @@ gulp.task('sprite', () => gulp.src('source/img/sprite/*.svg')
 );
 
 gulp.task('copy', () => gulp.src([
-    'source/fonts/**/*.{ttf,woff,woff2}',
+    // 'source/fonts/**/*.{ttf,woff,woff2}',
     // 'source/img/**',
     'source/favicon/*',
   ],
@@ -117,4 +117,4 @@ gulp.task('serve', () => {
   gulp.watch('source/js/**/*.js', gulp.series('jsPlugins', 'js')).on('change', server.reload);
 });
 
-gulp.task('build', gulp.series('clean', 'images', 'webp', 'sprite', 'copy', 'style', 'html', 'remove'));
+gulp.task('build', gulp.series('clean', 'images', 'sprite', 'copy', 'style', 'html'));

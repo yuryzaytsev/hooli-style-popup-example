@@ -14,48 +14,52 @@
   list-style: none;
 }
 
+.header__item input:checked ~ .popup {
+  display: flex;
+}
+
+.header__item input:checked ~ label,
+.header__item input:focus ~ label {
+  background-color: $orange;
+}
+
+.header__item input:checked ~ label svg,
+.header__item input:focus ~ label svg {
+  fill: $white;
+}
+
 .header__item {
   margin-left: 20px;
 
-  input:checked ~ .popup {
-    display: flex;
-  }
-
-  input:checked ~ label,
-  input:focus ~ label {
-    background-color: $orange;
-
-    svg {
-      fill: $white;
-    }
-  }
-
-  &--icon:nth-last-child(-n+2) {
+  &--icon:nth-last-child(-n + 2) {
     margin-left: 5px;
   }
+}
 
-  &:hover > label,
-  &:focus > label,
-  &--icon .header__link:hover,
-  &--icon .header__link:focus {
-    background-color: $orange;
-    cursor: pointer;
+.header__item:hover > label,
+.header__item:focus > label,
+.header__item--icon .header__link:hover,
+.header__item--icon .header__link:focus {
+  background-color: $orange;
+  cursor: pointer;
+}
 
-    svg {
-      fill: $white;
-    }
-  }
+.header__item:hover > label svg,
+.header__item:focus > label svg,
+.header__item--icon .header__link:hover svg,
+.header__item--icon .header__link:focus svg {
+  fill: $white;
+}
 
-  &--icon .header__link,
-  > label {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+.header__item--icon .header__link,
+.header__item--icon .header__link > label {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .header__link {
@@ -68,20 +72,18 @@
   outline: none;
   transition: color 0.1s linear;
 
-  svg {
-    fill: $black;
-  }
-
   &:hover,
   &:focus {
     color: $orange;
   }
+}
 
-  &--user {
-    img {
-      border-radius: 50%;
-    }
-  }
+.header__link--user img {
+  border-radius: 50%;
+}
+
+.header__link svg {
+  fill: $black;
 }
 
 .header__btn {
